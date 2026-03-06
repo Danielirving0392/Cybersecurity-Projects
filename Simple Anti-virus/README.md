@@ -26,4 +26,4 @@ Test.txt is Malicious
 
 Note:The scanner only computes MD5 hashes. SHA1/SHA256/SHA512 entries in the database will not match until multi-algorithm support is added.
 
-> This tool is for educational purposes only.
+> **This tool is for educational purposes only.**
