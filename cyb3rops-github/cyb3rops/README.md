@@ -1,7 +1,6 @@
 # Operation Cyb3rOps -- Full Penetration Test
 
 > CNS3005: Ethical Hacking | University of Technology, Jamaica
-> Group Members: Danielle Hemmings, Daniel Irving, Chadwick Hewitt, Christopher Chin
 > Date: November 19, 2025
 
 ---
