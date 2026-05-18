@@ -719,22 +719,6 @@ This is **direct evidence of an ongoing criminal relationship** between Rasco Ba
 
 5. **Cross-device propagation.** `ATM_THEFTS1.ppt` appearing on both the primary computer and the thumb drive demonstrates deliberate operational distribution of criminal planning material.
 
----
-
-## Repository Structure
-
-```text
-.
-├── README.md           ← This file
-└── images/             ← All 76 figures extracted from the original report
-    ├── fig-01-1.jpg       Figure 1.1   Adding Mantooth32.E01 as Data Source
-    ├── fig-01-2.jpg       Figure 1.2   Adding Washer 17.E01 as Data Source
-    ├── fig-01-3.jpg       Figure 1.3   Adding Thumbdrive 05.E01 as Data Source
-    ├── fig-02-1.jpg       Figure 2.1   Go To Offset Dialog
-    ├── ...
-    ├── fig-20-1.jpg       Figure 20.1  Recovered Chat.HTML Full Chat
-    └── fig-21-1.jpg       Figure 21.1  Washers To Do List
-```
 
 ---
 
