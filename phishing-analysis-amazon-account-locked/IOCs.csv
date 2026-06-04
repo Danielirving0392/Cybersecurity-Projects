@@ -1,0 +1,10 @@
+type,indicator,notes
+sender_display_name,Amazn,Misspelt brand name
+sender_email,amazon@zyevantoby.cn,Forged sender / Return-Path
+sending_domain,zyevantoby.cn,Non-Amazon .cn domain
+phishing_url,https://amaozn.zzyuchengzhika.cn/?mailtoken=<victim_email>,Credential harvesting with email tracking token
+phishing_domain,amaozn.zzyuchengzhika.cn,Typosquat of amazon; root zzyuchengzhika.cn
+secondary_link,https://www.facebook.com/amir.boyka.7,Footer "Support Team" link - attribution lead
+linked_profile_name,Amir Bigboss,Profile shown in URL2PNG capture
+subject_line,Your Account has been locked,Fear hook
+message_id,<000756bf516d$9bad2034$6e61f7fb$@vinuqou>,Kit-generated unrelated domain string
