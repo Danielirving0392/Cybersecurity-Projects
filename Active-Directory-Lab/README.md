@@ -1,12 +1,12 @@
-# 🏠 Active Directory Home Lab
+# Active Directory Home Lab
 
-> Deploying and hardening a fully functional Active Directory environment on Windows Server 2019 — built from scratch in Oracle VirtualBox as part of my cybersecurity portfolio.
+> Deploying and hardening a fully functional Active Directory environment on Windows Server 2019 - built from scratch in Oracle VirtualBox as part of my cybersecurity portfolio.
 
 ---
 
 ## Overview
 
-This lab simulates a real-world corporate Active Directory environment from the ground up. Starting from a bare Windows Server 2019 VM, I provisioned a domain controller, built a department-based Organizational Unit (OU) hierarchy, managed user accounts and security groups using Role-Based Access Control, and hardened the environment with Group Policy — then validated everything end-to-end with a domain-joined Windows 10 client machine.
+This lab simulates a real-world corporate Active Directory environment from the ground up. Starting from a bare Windows Server 2019 VM, I provisioned a domain controller, built a department-based Organizational Unit (OU) hierarchy, managed user accounts and security groups using Role-Based Access Control, and hardened the environment with Group Policy - then validated everything end-to-end with a domain-joined Windows 10 client machine.
 
 ---
 
@@ -66,7 +66,7 @@ ADLAB.local
 
 ---
 
-### Phase 1 — Server Setup
+### Phase 1 - Server Setup
 
 Before installing any roles, the server was prepared for domain controller promotion:
 
@@ -78,12 +78,12 @@ Before installing any roles, the server was prepared for domain controller promo
 |-----------|-------------|
 | ![](screenshots/01-server-setup/01-initial-server-manager.png) | Initial Server Manager Dashboard |
 | ![](screenshots/01-server-setup/03-static-ip-config.png) | Static IP assigned (192.168.10.1) |
-| ![](screenshots/01-server-setup/04-rename-pc-dc01.png) | Rename PC dialog — DC01 entered |
+| ![](screenshots/01-server-setup/04-rename-pc-dc01.png) | Rename PC dialog - DC01 entered |
 | ![](screenshots/01-server-setup/05-dc01-name-confirmed.png) | Device name confirmed as DC01 |
 
 ---
 
-### Phase 2 — AD DS Role Installation
+### Phase 2 - AD DS Role Installation
 
 The **Active Directory Domain Services** role was installed using the Add Roles and Features Wizard in Server Manager. The following components were installed automatically:
 
@@ -98,11 +98,11 @@ The **Active Directory Domain Services** role was installed using the Add Roles 
 |-----------|-------------|
 | ![](screenshots/02-adds-installation/03-adds-role-selected.png) | AD DS role selected in the wizard |
 | ![](screenshots/02-adds-installation/04-installation-starting.png) | Installation in progress |
-| ![](screenshots/02-adds-installation/05-installation-complete.png) | Installation complete — Promote link shown |
+| ![](screenshots/02-adds-installation/05-installation-complete.png) | Installation complete - Promote link shown |
 
 ---
 
-### Phase 3 — Domain Controller Promotion
+### Phase 3 - Domain Controller Promotion
 
 After AD DS installation, the server was promoted to a domain controller using the **AD DS Configuration Wizard**, creating a brand new forest.
 
@@ -130,41 +130,41 @@ Address: 192.168.10.1
 
 | Screenshot | Description |
 |-----------|-------------|
-| ![](screenshots/03-dc-promotion/01-promote-to-dc-notification.png) | Post-deployment notification — Promote this server |
-| ![](screenshots/03-dc-promotion/02-deployment-config-new-forest.png) | Deployment Configuration — Add a new forest |
-| ![](screenshots/03-dc-promotion/03-dc-options-dsrm-password.png) | DC Options — DNS, GC, DSRM password |
+| ![](screenshots/03-dc-promotion/01-promote-to-dc-notification.png) | Post-deployment notification - Promote this server |
+| ![](screenshots/03-dc-promotion/02-deployment-config-new-forest.png) | Deployment Configuration - Add a new forest |
+| ![](screenshots/03-dc-promotion/03-dc-options-dsrm-password.png) | DC Options - DNS, GC, DSRM password |
 | ![](screenshots/03-dc-promotion/04-dns-options.png) | DNS Options |
-| ![](screenshots/03-dc-promotion/05-additional-options.png) | Additional Options — NetBIOS name |
-| ![](screenshots/03-dc-promotion/06-paths.png) | Paths — NTDS, Logs, SYSVOL |
+| ![](screenshots/03-dc-promotion/05-additional-options.png) | Additional Options - NetBIOS name |
+| ![](screenshots/03-dc-promotion/06-paths.png) | Paths - NTDS, Logs, SYSVOL |
 | ![](screenshots/03-dc-promotion/07-review-options.png) | Review Options |
-| ![](screenshots/03-dc-promotion/08-prerequisites-check-passed.png) | Prerequisites Check — All passed |
-| ![](screenshots/03-dc-promotion/09-promotion-complete-reboot.png) | Promotion complete — Reboot initiated |
+| ![](screenshots/03-dc-promotion/08-prerequisites-check-passed.png) | Prerequisites Check - All passed |
+| ![](screenshots/03-dc-promotion/09-promotion-complete-reboot.png) | Promotion complete - Reboot initiated |
 | ![](screenshots/03-dc-promotion/10-ad-tools-in-server-manager.png) | AD tools now available in Server Manager |
 | ![](screenshots/03-dc-promotion/11-nslookup-adlab-local.png) | nslookup confirms ADLAB.local → 192.168.10.1 |
 
 ---
 
-### Phase 4 — Organizational Unit (OU) Structure
+### Phase 4 - Organizational Unit (OU) Structure
 
 Using **Active Directory Users and Computers (ADUC)**, a department-based OU hierarchy was designed to reflect a realistic enterprise structure. All OUs were created with **"Protect container from accidental deletion"** enabled.
 
 | OU | Sub-OUs | Purpose |
 |----|---------|---------|
 | IT_Department | Admin, Helpdesk | IT staff organized by function |
-| HR_Department | — | Human Resources personnel |
-| Finance_Department | — | Finance team accounts |
+| HR_Department | - | Human Resources personnel |
+| Finance_Department | - | Finance team accounts |
 | Computer | workstations | Computer objects for domain-joined machines |
-| Service_Accounts | — | Service and system accounts |
+| Service_Accounts | - | Service and system accounts |
 
 | Screenshot | Description |
 |-----------|-------------|
-| ![](screenshots/04-ou-structure/01-aduc-initial-view.png) | ADUC opened — Daniel Irving visible as initial user |
+| ![](screenshots/04-ou-structure/01-aduc-initial-view.png) | ADUC opened - Daniel Irving visible as initial user |
 | ![](screenshots/04-ou-structure/02-ou-tree-complete.png) | Complete OU hierarchy |
 | ![](screenshots/04-ou-structure/03-finance-dept-ou-creation.png) | Finance_Department OU being created |
 
 ---
 
-### Phase 5 — User Account Management
+### Phase 5 - User Account Management
 
 Five domain user accounts were created and placed in their respective OUs. All accounts were configured with **"User must change password at next logon"** enforced to ensure secure first-time access.
 
@@ -185,7 +185,7 @@ Five domain user accounts were created and placed in their respective OUs. All a
 
 ---
 
-### Phase 6 — Security Groups & Role-Based Access Control
+### Phase 6 - Security Groups & Role-Based Access Control
 
 Four **Global Security** groups were created to mirror the department structure and enforce role-based access control. Each user was assigned to the appropriate group.
 
@@ -209,16 +209,16 @@ Four **Global Security** groups were created to mirror the department structure 
 
 | Screenshot | Description |
 |-----------|-------------|
-| ![](screenshots/06-security-groups/01-it-admins-group.png) | IT_Admins — Global Security group created |
-| ![](screenshots/06-security-groups/02-it-helpdesk-group.png) | IT_Helpdesk — Global Security group created |
-| ![](screenshots/06-security-groups/03-hr-staff-group.png) | HR_staff — Global Security group created |
+| ![](screenshots/06-security-groups/01-it-admins-group.png) | IT_Admins - Global Security group created |
+| ![](screenshots/06-security-groups/02-it-helpdesk-group.png) | IT_Helpdesk - Global Security group created |
+| ![](screenshots/06-security-groups/03-hr-staff-group.png) | HR_staff - Global Security group created |
 | ![](screenshots/06-security-groups/05-john-smith-member-of-it-helpdesk.png) | John Smith → IT_Helpdesk confirmed |
 | ![](screenshots/06-security-groups/07-daniel-member-of-domain-admins.png) | Daniel Irving → Domain Admins + IT_Admins confirmed |
 | ![](screenshots/06-security-groups/09-sarah-member-of-hr-staff.png) | Sarah Brown → HR_staff confirmed |
 
 ---
 
-### Phase 7 — Group Policy Configuration
+### Phase 7 - Group Policy Configuration
 
 A new GPO named **"Password Policy"** was created in the **Group Policy Management Console (GPMC)** and linked to the `IT_Department` OU. The policy enforces three categories of security settings.
 
@@ -251,15 +251,15 @@ A legal notice banner was configured to display before every login:
 | Screenshot | Description |
 |-----------|-------------|
 | ![](screenshots/07-group-policy/02-gpo-named-password-policy.png) | "Password Policy" GPO created in GPMC |
-| ![](screenshots/07-group-policy/03-password-history-10.png) | Password history — 10 passwords remembered |
+| ![](screenshots/07-group-policy/03-password-history-10.png) | Password history - 10 passwords remembered |
 | ![](screenshots/07-group-policy/04-password-policy-settings.png) | Full password policy settings |
-| ![](screenshots/07-group-policy/05-account-lockout-settings.png) | Account lockout policy — 5 attempts / 30 min |
+| ![](screenshots/07-group-policy/05-account-lockout-settings.png) | Account lockout policy - 5 attempts / 30 min |
 | ![](screenshots/07-group-policy/06-logon-banner-config.png) | Logon banner message configured |
-| ![](screenshots/07-group-policy/08-gpupdate-force.png) | `gpupdate /force` — Policy update completed |
+| ![](screenshots/07-group-policy/08-gpupdate-force.png) | `gpupdate /force` - Policy update completed |
 
 ---
 
-### Phase 8 — Client Machine Integration & Verification
+### Phase 8 - Client Machine Integration & Verification
 
 A Windows 10 machine was named **CLIENT01** and joined to the `ADLAB.local` domain. Group Policy was then applied and verified through domain user login.
 
@@ -267,8 +267,8 @@ A Windows 10 machine was named **CLIENT01** and joined to the `ADLAB.local` doma
 1. CLIENT01 joined to `ADLAB.local` via System Properties > Computer Name
 2. `gpupdate /force` run on DC01 to push latest policies
 3. Logged into CLIENT01 as `d.irving` (ADLAB\d.irving)
-4. **Logon banner appeared** — confirming GPO enforcement
-5. **Forced password change triggered** — "User must change password at next logon"
+4. **Logon banner appeared** - confirming GPO enforcement
+5. **Forced password change triggered** - "User must change password at next logon"
 6. Password successfully changed on first login
 
 **Domain Verification (run on DC01):**
@@ -299,7 +299,7 @@ C:\> dsquery computer -domain ADLAB.local
 "CN=CLIENT01,OU=workstations,OU=Computer,DC=ADLAB,DC=local"     ✅
 ```
 
-> **Note:** `net view /domain:ADLAB.local` returned Error 6118 — expected behavior in modern Windows environments where the Computer Browser service is disabled. This does not indicate a domain issue; all other verification commands confirmed full domain functionality.
+> **Note:** `net view /domain:ADLAB.local` returned Error 6118 - expected behavior in modern Windows environments where the Computer Browser service is disabled. This does not indicate a domain issue; all other verification commands confirmed full domain functionality.
 
 | Screenshot | Description |
 |-----------|-------------|
@@ -365,7 +365,7 @@ Active-Directory-Home-Lab/
 ## Author
 
 **Daniel Irving**  
-Computer Networking & Security Student — University of Technology, Jamaica  
+Computer Networking & Security Student - University of Technology, Jamaica  
 GitHub: [github.com/Danielirving0392/Cybersecurity-Projects](https://github.com/Danielirving0392/Cybersecurity-Projects.git)
 
 ---
