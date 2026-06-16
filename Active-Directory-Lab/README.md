@@ -1,4 +1,4 @@
-# Active Directory Home Lab
+# Active Directory Lab
 
 > Deploying and hardening a fully functional Active Directory environment on Windows Server 2019 - built from scratch in Oracle VirtualBox as part of my cybersecurity portfolio.
 
